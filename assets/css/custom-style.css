@@ -1,0 +1,77 @@
+/* Footer */
+.footer .footer-inner .footer-content{
+    bottom: 4px !important;
+    padding: 1px !important;
+    line-height: 23px !important;
+}
+
+
+/*Data Table CSS - Custom Style */
+
+.dataTables_wrapper .row:first-child {
+    padding-top: 7px !important;
+    padding-bottom: 2px !important;;
+}
+
+.dataTables_wrapper .row:last-child {
+    padding-top: 5px !important;
+    padding-bottom: 0px !important;
+    background-color: #ffffff !important;
+}
+
+
+.bg-color-green {
+    background-color: #fff;
+    color: #5cb85c;
+}
+.bg-color-blue {
+    background-color: #fff;
+    color: #4CB1CF;
+}
+.bg-color-red {
+    background-color: #fff;
+    color: #F0433D;
+}
+.bg-color-brown {
+    background-color: #fff;
+    color: #f0ad4e;
+}
+.no-boder {
+    border: 1px solid #f3f3f3;
+}
+.ef1{
+	border: 0 solid #e7e7e7;
+    border-radius: 5px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.09);
+}
+.stat-title{
+	font-size: 24px;
+	margin-top: 7px;
+    margin-bottom: -5px;
+    font-family: inherit;
+    font-weight: 500;
+    line-height: 1.1;
+    color: inherit;
+}
+.back-footer-green {
+    background-color: #5cb85c;
+    color: #fff;
+    border-top: 0px solid #fff;
+}
+.back-footer-blue {
+    background-color: #4CB1CF;
+    color: #fff;
+    border-top: 0px solid #fff;
+}
+.back-footer-red {
+    background-color: #F0433D;
+    color: #fff;
+    border-top: 0px solid #fff;
+}
+.back-footer-brown {
+    background-color: #f0ad4e;
+    color: #fff;
+    border-top: 0px solid #fff;
+}
+
+
