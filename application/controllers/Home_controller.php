@@ -1294,6 +1294,8 @@ class Home_controller extends CI_Controller
     }
 
 
+
+
     function space()
 
     {
@@ -1645,6 +1647,19 @@ class Home_controller extends CI_Controller
     {
 
         echo $this->masters_model->get_property_log();
+
+    }
+
+
+
+    function user_verification(){
+
+           $id=$_REQUEST['id'];
+
+           $NewId=base64_decode($id);
+
+           $data['s_result'] = $this->home_model->Change_Status($NewId);
+
 
     }
 
