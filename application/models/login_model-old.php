@@ -192,14 +192,14 @@ class login_model extends CI_Model
         
         $senderName = $firstName;
         $senderEmail = $s_email;
-     
+
         $data["empName"] = $senderName;
 
         $param["body"] = $data;
 
         $mailData = [
             'toEmail' => $senderEmail,
-            'subject' => "Thank you for Registering with Us",
+            'subject' => "Thank you for Registering with Us & Verify your Account",
             'param' => $param
         ];
 
