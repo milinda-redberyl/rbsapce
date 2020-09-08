@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1d33c42f-13ff-4915-8b19-b03b24df5280" name="Default Changelist" comment="" />
+    <list default="true" id="1d33c42f-13ff-4915-8b19-b03b24df5280" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/helpers/bk_config_helper.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/helpers/bk_config_helper.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/admin/emailTemplate/registering-email.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/admin/emailTemplate/registering-email.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/system/pages/broker_login.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/system/pages/broker_login.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -11,6 +17,9 @@
     <execution>
       <executable />
     </execution>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1gEJ0c03HYCSnjxTX7sbYwWqNLq" />
   <component name="ProjectViewState">
@@ -22,6 +31,8 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/system/language" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">

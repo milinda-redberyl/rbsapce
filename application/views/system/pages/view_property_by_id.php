@@ -1032,13 +1032,13 @@ $this->output->set_header("Pragma: no-cache");
 
                             <div class="col-md-12 col-sm-12">
 
-                                <div class="panel-heading">
+                                <!-- <div class="panel-heading">
 
                                     <h3 class="panel-title"> <?php echo $this->lang->line('prices_trends') ?>*</h3>
 
-                                </div>
+                                </div> -->
 
-                                <div id="chartdiv"></div>
+                                <!-- <div id="chartdiv"></div> -->
 
                             </div>
 
