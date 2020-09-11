@@ -24,7 +24,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |
 */
 
-$config['base_url'] = 'http://cas.rbdemo.mili/';
+$config['base_url'] = 'http://rbspace.rbdemo.live/';
 //$config['base_url'] = '';
 
 
