@@ -3,7 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="1d33c42f-13ff-4915-8b19-b03b24df5280" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/config/config.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/config/config.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/config/routes.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/config/routes.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/controllers/Login.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/Login.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/controllers/Property.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/Property.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/models/Login_model.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/Login_model.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/admin/manage_property_view.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/admin/manage_property_view.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,7 +69,10 @@
       <workItem from="1597673596983" duration="1079000" />
       <workItem from="1597674848493" duration="4679000" />
       <workItem from="1599535925107" duration="3006000" />
-      <workItem from="1599547817561" duration="2307000" />
+      <workItem from="1599547817561" duration="2907000" />
+      <workItem from="1599632686939" duration="8715000" />
+      <workItem from="1599706698279" duration="1235000" />
+      <workItem from="1599793913273" duration="642000" />
     </task>
     <servers />
   </component>
@@ -73,14 +80,14 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="740" y="276" key="FileChooserDialogImpl" timestamp="1599548298543">
+    <state x="740" y="276" key="FileChooserDialogImpl" timestamp="1599641906256">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="740" y="276" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1599548298543" />
-    <state x="656" y="345" key="com.intellij.ide.util.TipDialog" timestamp="1599547883302">
+    <state x="740" y="276" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1599641906256" />
+    <state x="656" y="345" key="com.intellij.ide.util.TipDialog" timestamp="1599793918543">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="656" y="345" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1599547883302" />
+    <state x="656" y="345" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1599793918543" />
     <state x="460" y="144" width="615" height="536" key="find.popup" timestamp="1597685901539">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

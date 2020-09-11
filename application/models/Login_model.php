@@ -399,6 +399,26 @@ class Login_model extends CI_Model
 
         send_email($mailData, 'registering-email');
 
+        //get mail id....
+        $this->db->select('EIdNo');
+        $this->db->from('srp_employeesdetails');
+        $this->db->where('EEmail', $senderEmail);
+        $EIdNo = $this->db->get()->row()->EIdNo;
+
+
+
+        $to       = $senderEmail;
+        $subject  = 'Thank you for Registering with Us & verify your account';
+        $message  = 'Hi,'. "\r\n" .'<br><a href="'.base_url().'"/verify_user?id="'.base64_encode($EIdNo).'">accept</a>';
+        $headers  = 'From: noreplay@mail.com' . "\r\n" .
+            'MIME-Version: 1.0' . "\r\n" .
+            'Content-type: text/html; charset=utf-8';
+        if(mail($to, $subject, $message, $headers)){
+            echo "Email sent";
+        }else{
+            echo "Email sending failed";
+        }
+
         return array('s', 'Email Send Successfully !');
 
     }

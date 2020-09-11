@@ -1819,7 +1819,7 @@ $pending_property_count = count($pending_property_r);
 
                     }*/
 
-            ,
+            // ,
 
             preview_error: function (filename, error_code) {
 
