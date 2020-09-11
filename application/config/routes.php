@@ -243,11 +243,10 @@ $route['aboutus'] = 'Property/manage_about_us';
 
 $route['review_manager'] = 'Article/manage_review_controller';
 
-<<<<<<< HEAD
+
 $route['verify_user']='Property/user_verify';
-=======
+
 
 
 //////////////////////////////////////////////////
-$route['verification_user'] = 'home_controller/user_verification';
->>>>>>> dev
+//$route['verification_user'] = 'home_controller/user_verification';
