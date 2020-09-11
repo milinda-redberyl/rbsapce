@@ -208,6 +208,10 @@ class Login_model extends CI_Model
 
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> dev
         if(isset($data['Ename1'])){
 
             $result_emp = $this->db->insert('srp_employeesdetails', $data);
@@ -216,6 +220,7 @@ class Login_model extends CI_Model
 
             if($insert_id){
 
+<<<<<<< HEAD
                 // foreach ($category_list as $cat_val){
 
                 //     $data_customer_category_types = array(
@@ -248,14 +253,55 @@ class Login_model extends CI_Model
 
             }
             return $result_emp;
+=======
+                foreach ($category_list as $cat_val){
+
+                    $data_customer_category_types = array(
+
+                        'cus_id'=> $insert_id,
+
+                        'category_id' => $cat_val
+
+                    );
+
+                   $this->db->insert('customer_category_types', $data_customer_category_types);
+
+                }
+
+//                foreach ($property_list as $prop_val){
+
+//                    $data_customer_property_types = array(
+//
+//                        'cus_id'=> $insert_id,
+//
+//                        'property_type_id' => $prop_val
+//
+//                    );
+//
+//                    $result_prop = $this->db->insert('customer_property_types', $data_customer_property_types);
+//
+//                    return $result_prop;
+
+//                }
+
+            }
+>>>>>>> dev
 
         }
 
 
 
+<<<<<<< HEAD
         // $result_emp = $this->db->insert('srp_employeesdetails', $data);
 
         // return $result_emp;
+=======
+//         $result_emp = $this->db->insert('srp_employeesdetails', $data);
+//
+//         return $result_emp;
+
+        return $result_emp;
+>>>>>>> dev
 
     }
 
@@ -360,9 +406,12 @@ class Login_model extends CI_Model
 
 
     function send_thankyou_Email()
+<<<<<<< HEAD
 
 
 
+=======
+>>>>>>> dev
     {
 
         $s_email = trim($this->input->post('EEmail'));  
@@ -380,6 +429,14 @@ class Login_model extends CI_Model
         $data["empName"] = $senderName;
 
 
+<<<<<<< HEAD
+=======
+        // $this->db->select('EIdNo');
+        // $this->db->from('srp_employeesdetails');
+        // $this->db->where('EEmail', $s_email);
+        // $data["EIdNo"]=$this->db->get()->result();
+
+>>>>>>> dev
 
         $param["body"] = $data;
 
@@ -389,7 +446,11 @@ class Login_model extends CI_Model
 
             'toEmail' => $s_email,
 
+<<<<<<< HEAD
             'subject' => "Thank you for Registering with Us",
+=======
+            'subject' => "Thank you for Registering with Us & Verify your Account",
+>>>>>>> dev
 
             'param' => $param
 
@@ -397,6 +458,7 @@ class Login_model extends CI_Model
 
 
 
+<<<<<<< HEAD
         send_email($mailData, 'registering-email');
 
         //get mail id....
@@ -420,6 +482,13 @@ class Login_model extends CI_Model
         }
 
         return array('s', 'Email Send Successfully !');
+=======
+
+        send_email($mailData, 'registering-email');
+
+
+        return array('s', 'Email Send Successfully MILEE!');
+>>>>>>> dev
 
     }
 

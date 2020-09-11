@@ -161,6 +161,8 @@ $route['companyOverview/(:num)'] = 'home_controller/view_single_company';
 
 $route['partner_login'] = 'home_controller/broker_login';
 
+
+
 $route['find-space'] = 'home_controller/space';                              //***********************space
 
 $route['list-space'] = 'home_controller/list_space';                            //***********************space
@@ -241,4 +243,11 @@ $route['aboutus'] = 'Property/manage_about_us';
 
 $route['review_manager'] = 'Article/manage_review_controller';
 
+<<<<<<< HEAD
 $route['verify_user']='Property/user_verify';
+=======
+
+
+//////////////////////////////////////////////////
+$route['verification_user'] = 'home_controller/user_verification';
+>>>>>>> dev

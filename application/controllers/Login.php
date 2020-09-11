@@ -950,7 +950,11 @@ class Login extends CI_Controller
 
                 if ($result) {
 
+<<<<<<< HEAD
                      $this->Login_model->send_thankyou_Email();
+=======
+                    $this->Login_model->send_thankyou_Email();
+>>>>>>> dev
 
                     echo json_encode(array('s', 'You are successfully registered, Our team will review and contact you. Thanks.'));
 
