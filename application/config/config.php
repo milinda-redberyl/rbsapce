@@ -23,8 +23,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = 'http://cas.rbdemo.mili/';
+
+$config['base_url'] = 'http://rbspace.rbdemo.live/';
 //$config['base_url'] = '';
+
 
 /*
 |--------------------------------------------------------------------------
