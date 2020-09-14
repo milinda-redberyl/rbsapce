@@ -16,7 +16,10 @@ $this->output->set_header("Pragma: no-cache");
 
 ?>
 
-<link href="<?php echo base_url('assets/system/') ?>css/flexslider.css" rel="stylesheet">
+<link href="<?php echo base_url('assets/system/') ?>css/flexslider.css" rel="stylesheet"> 
+<link href="<?php echo base_url('assets/system/') ?>css/chatbox.css" rel="stylesheet"> 
+
+
 
 <style>
 
@@ -1216,7 +1219,22 @@ $this->output->set_header("Pragma: no-cache");
 
                                                     </div>
 
+                                                    <div class="col-md-12 btn-grp">
 
+                                                        <a onclick="chatModal()"
+
+                                                           class="btn btn-contact btn_set" style="position:  relative;">
+
+                                                            <span class="glyphicon glyphicon-comment"
+
+                                                                  style="position:  absolute;font-size: 20px;margin-left: -40px;margin-top: 8px;"></span>
+
+                                                                 Chat - Owner
+                                                          
+                                                          
+                                                          </a>
+
+                                                    </div>
 
                                                 </div>
 
@@ -2478,7 +2496,130 @@ $this->output->set_header("Pragma: no-cache");
 
 
 
-<!----- end report modal  ---->
+<!----- end report modal  ----> 
+
+<!----- Chat Modal modal  ---->
+
+<div id="chatModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title"><span class="glyphicon glyphicon-comment"></span>&nbsp;Chat - Owner</h4>
+      </div>
+      <div class="modal-body">
+      <div class="row chat-window fluid" id="chat_window_1" >
+        <div class="col-xs-12 col-md-12">
+        	<div class="panel panel-default">
+                <div class="msg_container_base">
+                    <div class="row msg_container base_sent">
+                        <div class="col-md-10 col-xs-10">
+                            <div class="messages msg_sent">
+                                <p>that mongodb thing looks good, huh?
+                                tiny master db, and huge document store</p>
+                                <time datetime="2009-11-13T20:00">Timothy • 51 min</time>
+                            </div>
+                        </div>
+                        <div class="col-md-2 col-xs-2 avatar">
+                            <img src="http://www.bitrebels.com/wp-content/uploads/2011/02/Original-Facebook-Geek-Profile-Avatar-1.jpg" class=" img-responsive ">
+                        </div>
+                    </div>
+                    <div class="row msg_container base_receive">
+                        <div class="col-md-2 col-xs-2 avatar">
+                            <img src="http://www.bitrebels.com/wp-content/uploads/2011/02/Original-Facebook-Geek-Profile-Avatar-1.jpg" class=" img-responsive ">
+                        </div>
+                        <div class="col-md-10 col-xs-10">
+                            <div class="messages msg_receive">
+                                <p>that mongodb thing looks good, huh?
+                                tiny master db, and huge document store</p>
+                                <time datetime="2009-11-13T20:00">Timothy • 51 min</time>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row msg_container base_receive">
+                        <div class="col-md-2 col-xs-2 avatar">
+                            <img src="http://www.bitrebels.com/wp-content/uploads/2011/02/Original-Facebook-Geek-Profile-Avatar-1.jpg" class=" img-responsive ">
+                        </div>
+                        <div class="col-xs-10 col-md-10">
+                            <div class="messages msg_receive">
+                                <p>that mongodb thing looks good, huh?
+                                tiny master db, and huge document store</p>
+                                <time datetime="2009-11-13T20:00">Timothy • 51 min</time>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row msg_container base_sent">
+                        <div class="col-xs-10 col-md-10">
+                            <div class="messages msg_sent">
+                                <p>that mongodb thing looks good, huh?
+                                tiny master db, and huge document store</p>
+                                <time datetime="2009-11-13T20:00">Timothy • 51 min</time>
+                            </div>
+                        </div>
+                        <div class="col-md-2 col-xs-2 avatar">
+                            <img src="http://www.bitrebels.com/wp-content/uploads/2011/02/Original-Facebook-Geek-Profile-Avatar-1.jpg" class=" img-responsive ">
+                        </div>
+                    </div>
+                    <div class="row msg_container base_receive">
+                        <div class="col-md-2 col-xs-2 avatar">
+                            <img src="http://www.bitrebels.com/wp-content/uploads/2011/02/Original-Facebook-Geek-Profile-Avatar-1.jpg" class=" img-responsive ">
+                        </div>
+                        <div class="col-xs-10 col-md-10">
+                            <div class="messages msg_receive">
+                                <p>that mongodb thing looks good, huh?
+                                tiny master db, and huge document store</p>
+                                <time datetime="2009-11-13T20:00">Timothy • 51 min</time>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row msg_container base_sent">
+                        <div class="col-md-10 col-xs-10 ">
+                            <div class="messages msg_sent">
+                                <p>that mongodb thing looks good, huh?
+                                tiny master db, and huge document store</p>
+                                <time datetime="2009-11-13T20:00">Timothy • 51 min</time>
+                            </div>
+                        </div>
+                        <div class="col-md-2 col-xs-2 avatar">
+                            <img src="http://www.bitrebels.com/wp-content/uploads/2011/02/Original-Facebook-Geek-Profile-Avatar-1.jpg" class=" img-responsive ">
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-footer">
+                    <div class="input-group">
+                        <input id="btn-input" type="text" class="form-control input-sm chat_input" placeholder="Write your message here..." />
+                        <span class="input-group-btn">
+                        <button class="btn btn-primary btn-sm" id="btn-chat">Send</button>
+                        </span>
+                    </div>
+                </div>
+    		</div>
+        </div>
+    </div>
+    
+    <div class="btn-group dropup">
+        <!-- <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+            <span class="glyphicon glyphicon-cog"></span>
+            <span class="sr-only">Toggle Dropdown</span>
+        </button>
+        <ul class="dropdown-menu" role="menu">
+            <li><a href="#" id="new_chat"><span class="glyphicon glyphicon-plus"></span> Novo</a></li>
+            <li><a href="#"><span class="glyphicon glyphicon-list"></span> Ver outras</a></li>
+            <li><a href="#"><span class="glyphicon glyphicon-remove"></span> Fechar Tudo</a></li>
+            <li class="divider"></li>
+            <li><a href="#"><span class="glyphicon glyphicon-eye-close"></span> Invisivel</a></li>
+        </ul> -->
+    </div>
+      </div>
+     
+    </div>
+
+  </div>
+</div>
+
+<!----- end chat modal  ----> 
 
 
 
@@ -3283,6 +3424,9 @@ $this->output->set_header("Pragma: no-cache");
     }
 
 
+    function chatModal() {
+        $('#chatModal').modal('show');
+    }
 
     function submit_report_data() {
 
@@ -3379,6 +3523,38 @@ $this->output->set_header("Pragma: no-cache");
     }
 
 
+
+$(document).on('click', '.panel-heading span.icon_minim', function (e) {
+    var $this = $(this);
+    if (!$this.hasClass('panel-collapsed')) {
+        $this.parents('.panel').find('.panel-body').slideUp();
+        $this.addClass('panel-collapsed');
+        $this.removeClass('glyphicon-minus').addClass('glyphicon-plus');
+    } else {
+        $this.parents('.panel').find('.panel-body').slideDown();
+        $this.removeClass('panel-collapsed');
+        $this.removeClass('glyphicon-plus').addClass('glyphicon-minus');
+    }
+});
+$(document).on('focus', '.panel-footer input.chat_input', function (e) {
+    var $this = $(this);
+    if ($('#minim_chat_window').hasClass('panel-collapsed')) {
+        $this.parents('.panel').find('.panel-body').slideDown();
+        $('#minim_chat_window').removeClass('panel-collapsed');
+        $('#minim_chat_window').removeClass('glyphicon-plus').addClass('glyphicon-minus');
+    }
+});
+$(document).on('click', '#new_chat', function (e) {
+    var size = $( ".chat-window:last-child" ).css("margin-left");
+     size_total = parseInt(size) + 400;
+    alert(size_total);
+    var clone = $( "#chat_window_1" ).clone().appendTo( ".container" );
+    clone.css("margin-left", size_total);
+});
+$(document).on('click', '.icon_close', function (e) {
+    //$(this).parent().parent().parent().parent().remove();
+    $( "#chat_window_1" ).remove();
+});
 
 </script>
 

@@ -222,7 +222,8 @@
                                                 class="glyphicon glyphicon-envelope"
                                                 style="position:  absolute;font-size: 20px;margin-left: -50px;margin-top: 8px;"></span>
                                         Email agent</a>
-                                </div>
+                                </div> 
+                              
 
                             </div>
                         </div>
