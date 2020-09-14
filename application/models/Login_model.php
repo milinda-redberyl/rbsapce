@@ -149,11 +149,27 @@ class Login_model extends CI_Model
     }
 
 
+    function get_users($email)
+
+    {
+
+        echo "call methord";
+
+        $this->db->select('*');
+
+        $this->db->from('srp_employeesdetails');
+
+        $this->db->where('UserName', $email);
+
+        $result = $this->db->get()->row();
+
+        return $result;
+
+    }
 
     function save_partner()
 
     {
-
 
 
         $data['Ename1'] = trim($this->input->post('firstName'));  //same value set Ename1 and Ename2
@@ -171,13 +187,11 @@ class Login_model extends CI_Model
         $data['EpCity'] = trim($this->input->post('city_id'));
 
 
-
         $pwd = trim($this->input->post('Password'));
 
         $md5pwd = md5($pwd);
 
         $data['Password'] = $md5pwd;
-
 
 
         $data['isAgent'] = 0;
@@ -191,7 +205,6 @@ class Login_model extends CI_Model
         $data['isSystemAdmin'] = 0;
 
 
-
         $data['CreatedUserName'] = current_userID();
 
         $data['CreatedDate'] = format_date_mysql_datetime();
@@ -201,26 +214,20 @@ class Login_model extends CI_Model
         $data['CreatedPC'] = current_pc();
 
 
-
-        $category_list =$this->input->post('category_list');
+        $category_list = $this->input->post('category_list');
 
         $property_list = $this->input->post('property_list');
 
 
-
-<<<<<<< HEAD
-=======
-
->>>>>>> dev
-        if(isset($data['Ename1'])){
+        if (isset($data['Ename1'])) {
 
             $result_emp = $this->db->insert('srp_employeesdetails', $data);
 
             $insert_id = $this->db->insert_id();
 
-            if($insert_id){
+            if ($insert_id) {
 
-<<<<<<< HEAD
+
                 // foreach ($category_list as $cat_val){
 
                 //     $data_customer_category_types = array(
@@ -253,20 +260,19 @@ class Login_model extends CI_Model
 
             }
             return $result_emp;
-=======
-                foreach ($category_list as $cat_val){
+            foreach ($category_list as $cat_val) {
 
-                    $data_customer_category_types = array(
+                $data_customer_category_types = array(
 
-                        'cus_id'=> $insert_id,
+                    'cus_id' => $insert_id,
 
-                        'category_id' => $cat_val
+                    'category_id' => $cat_val
 
-                    );
+                );
 
-                   $this->db->insert('customer_category_types', $data_customer_category_types);
+                $this->db->insert('customer_category_types', $data_customer_category_types);
 
-                }
+            }
 
 //                foreach ($property_list as $prop_val){
 
@@ -284,214 +290,152 @@ class Login_model extends CI_Model
 
 //                }
 
-            }
->>>>>>> dev
 
-        }
+//        }
 
+            // $result_emp = $this->db->insert('srp_employeesdetails', $data);
 
+            // return $result_emp;
 
-<<<<<<< HEAD
-        // $result_emp = $this->db->insert('srp_employeesdetails', $data);
-
-        // return $result_emp;
-=======
 //         $result_emp = $this->db->insert('srp_employeesdetails', $data);
 //
 //         return $result_emp;
 
-        return $result_emp;
->>>>>>> dev
-
-    }
-
-
-
-    function save_space_host()
-
-    {
-
-
-
-        $data['Ename1'] = trim($this->input->post('firstName'));  //same value set Ename1 and Ename2
-
-        $data['EEmail'] = trim($this->input->post('EEmail'));
-
-        $data['UserName'] = trim($this->input->post('Username'));
-
-
-
-
-
-        $pwd = trim($this->input->post('Password'));
-
-        $md5pwd = md5($pwd);
-
-        $data['Password'] = $md5pwd;
-
-
-
-        $data['isAgent'] = 0;
-
-        $data['isActive'] = 0;
-
-        $data['isCompany'] = 0;
-
-        $data['isPartner'] = 0;
-
-        $data['isSystemAdmin'] = 0;
-
-        $data['isSpaceHost'] = 1;
-
-
-
-        $data['CreatedUserName'] = current_userID();
-
-        $data['CreatedDate'] = format_date_mysql_datetime();
-
-        $data['Timestamp'] = format_date_mysql_datetime();
-
-        $data['CreatedPC'] = current_pc();
-
-
-
-
-
-        if(isset($data['Ename1']) && isset($data['EEmail'])){
-
-            $result_emp = $this->db->insert('srp_employeesdetails', $data);
-
             return $result_emp;
 
+
+        }
+    }
+
+        function save_space_host()
+
+        {
+
+
+            $data['Ename1'] = trim($this->input->post('firstName'));  //same value set Ename1 and Ename2
+
+            $data['EEmail'] = trim($this->input->post('EEmail'));
+
+            $data['UserName'] = trim($this->input->post('Username'));
+
+
+            $pwd = trim($this->input->post('Password'));
+
+            $md5pwd = md5($pwd);
+
+            $data['Password'] = $md5pwd;
+
+
+            $data['isAgent'] = 0;
+
+            $data['isActive'] = 0;
+
+            $data['isCompany'] = 0;
+
+            $data['isPartner'] = 0;
+
+            $data['isSystemAdmin'] = 0;
+
+            $data['isSpaceHost'] = 1;
+
+
+            $data['CreatedUserName'] = current_userID();
+
+            $data['CreatedDate'] = format_date_mysql_datetime();
+
+            $data['Timestamp'] = format_date_mysql_datetime();
+
+            $data['CreatedPC'] = current_pc();
+
+
+            if (isset($data['Ename1']) && isset($data['EEmail'])) {
+
+                $result_emp = $this->db->insert('srp_employeesdetails', $data);
+
+                return $result_emp;
+
+            }
+
         }
 
-    }
 
 
 
-    function get_users($email)
 
-    {
+        function get_company_id($cn)
 
-        $this->db->select('*');
+        {
 
-        $this->db->from('srp_employeesdetails');
+            $this->db->select('*');
 
-        $this->db->where('UserName', $email);
+            $this->db->from('company_master');
 
-        $result = $this->db->get()->row();
+            $this->db->where('company_name', $cn);
 
-        return $result;
+            $result = $this->db->get()->row();
 
-    }
+            return $result;
 
-
-
-     function get_company_id($cn)
-
-    {
-
-        $this->db->select('*');
-
-        $this->db->from('company_master');
-
-        $this->db->where('company_name', $cn);
-
-        $result = $this->db->get()->row();
-
-        return $result;
-
-    }
-
-
-
-    function send_thankyou_Email()
-<<<<<<< HEAD
-
-
-
-=======
->>>>>>> dev
-    {
-
-        $s_email = trim($this->input->post('EEmail'));  
-
-        $firstName = trim($this->input->post('firstName'));    
-
-        
-
-        $senderName = $firstName;
-
-        $senderEmail = $s_email;
-
-     
-
-        $data["empName"] = $senderName;
-
-
-<<<<<<< HEAD
-=======
-        // $this->db->select('EIdNo');
-        // $this->db->from('srp_employeesdetails');
-        // $this->db->where('EEmail', $s_email);
-        // $data["EIdNo"]=$this->db->get()->result();
-
->>>>>>> dev
-
-        $param["body"] = $data;
-
-
-
-        $mailData = [
-
-            'toEmail' => $s_email,
-
-<<<<<<< HEAD
-            'subject' => "Thank you for Registering with Us",
-=======
-            'subject' => "Thank you for Registering with Us & Verify your Account",
->>>>>>> dev
-
-            'param' => $param
-
-        ];
-
-
-
-<<<<<<< HEAD
-        send_email($mailData, 'registering-email');
-
-        //get mail id....
-        $this->db->select('EIdNo');
-        $this->db->from('srp_employeesdetails');
-        $this->db->where('EEmail', $senderEmail);
-        $EIdNo = $this->db->get()->row()->EIdNo;
-
-
-
-        $to       = $senderEmail;
-        $subject  = 'Thank you for Registering with Us & verify your account';
-        $message  = 'Hi,'. "\r\n" .'<br><a href="'.base_url().'"/verify_user?id="'.base64_encode($EIdNo).'">accept</a>';
-        $headers  = 'From: noreplay@mail.com' . "\r\n" .
-            'MIME-Version: 1.0' . "\r\n" .
-            'Content-type: text/html; charset=utf-8';
-        if(mail($to, $subject, $message, $headers)){
-            echo "Email sent";
-        }else{
-            echo "Email sending failed";
         }
 
-        return array('s', 'Email Send Successfully !');
-=======
 
-        send_email($mailData, 'registering-email');
+        function send_thankyou_Email()
+        {
+
+            $s_email = trim($this->input->post('EEmail'));
+
+            $firstName = trim($this->input->post('firstName'));
 
 
-        return array('s', 'Email Send Successfully MILEE!');
->>>>>>> dev
+            $senderName = $firstName;
 
-    }
+            $senderEmail = $s_email;
 
+
+            $data["empName"] = $senderName;
+
+
+
+
+            $param["body"] = $data;
+
+
+            $mailData = [
+
+                'toEmail' => $s_email,
+
+                'subject' => "Thank you for Registering with Us & Verify your Account",
+
+                'param' => $param
+
+            ];
+
+
+            send_email($mailData, 'registering-email');
+
+            //get mail id....
+            $this->db->select('EIdNo');
+            $this->db->from('srp_employeesdetails');
+            $this->db->where('EEmail', $senderEmail);
+            $EIdNo = $this->db->get()->row()->EIdNo;
+
+
+            $to = $senderEmail;
+            $subject = 'Thank you for Registering with Us & verify your account';
+            $message = 'Hi,' . "\r\n" . '<br><a href="' . base_url() . '"/verify_user?id="' . base64_encode($EIdNo) . '">accept</a>';
+            $headers = 'From: noreplay@mail.com' . "\r\n" .
+                'MIME-Version: 1.0' . "\r\n" .
+                'Content-type: text/html; charset=utf-8';
+            if (mail($to, $subject, $message, $headers)) {
+                echo "Email sent";
+            } else {
+                echo "Email sending failed";
+            }
+
+            return array('s', 'Email Send Successfully !');
+
+
+        }
 
 
 

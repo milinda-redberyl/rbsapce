@@ -248,5 +248,3 @@ $route['verify_user']='Property/user_verify';
 
 
 
-//////////////////////////////////////////////////
-//$route['verification_user'] = 'home_controller/user_verification';

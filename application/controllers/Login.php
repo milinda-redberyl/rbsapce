@@ -942,7 +942,7 @@ class Login extends CI_Controller
 
             $email = $this->input->post('EEmail');
 
-            $user = $this->Login_model->get_users($email);
+           $user = $this->Login_model->get_users($email);
 
             if (empty($user)) {
 
