@@ -280,8 +280,8 @@ $this->output->set_header("Pragma: no-cache");
 
 
     if (isset($property_data)) {
-
-        //var_dump($property_data);
+        // alert($property_data);
+        // var_dump($property_data);
 
     }
 
@@ -1129,11 +1129,13 @@ $this->output->set_header("Pragma: no-cache");
 
                                                     <div class="col-md-8 col-sm-7 col-xs-7">
 
-                                                        <h3 class="a-name"><a
+                                                        <h3 class="a-name">
+                                                            
+                                                            <a  href="<?php echo site_url('agentOverview'); ?>/<?php echo $property_data['agent_id'];?>" >
 
-                                                                    href="<?php echo site_url('agentOverview'); ?>/<?php echo $property_data['agent_id']; ?>">
-
-                                                                <?php echo isset($property_data['agentName']) ? $property_data['agentName'] : '-'; ?></a>
+                                                            <?php echo isset($property_data['agentName']) ? $property_data['agentName'] : '-'; ?>
+                                                            
+                                                            </a>
 
                                                         </h3>
 
@@ -1221,7 +1223,7 @@ $this->output->set_header("Pragma: no-cache");
 
                                                     <div class="col-md-12 btn-grp">
 
-                                                        <a onclick="chatModal()"
+                                                        <a onclick="chatModal(<?php echo $property_data['property_id'];  ?>,<?php echo $property_data['agent_id']; ?>)"
 
                                                            class="btn btn-contact btn_set" style="position:  relative;">
 
@@ -2254,9 +2256,7 @@ $this->output->set_header("Pragma: no-cache");
 
                                 <h2 class="review-h3">Enter your details</h2>
 
-                                <input id="agent_id" value="<?php //echo $property_data['EIdNo']; ?>" name="agent_id"
-
-                                       type="hidden">
+                                <input id="agent_id" value="<?php echo $property_data['EIdNo']; ?>" name="agent_id"  type="hidden">
 
 
 
@@ -2507,87 +2507,26 @@ $this->output->set_header("Pragma: no-cache");
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title"><span class="glyphicon glyphicon-comment"></span>&nbsp;Chat - Owner</h4>
+        <h4 class="modal-title"><span class="glyphicon glyphicon-comment"></span>&nbsp;Chat - Owner</h4> 
+        <input type="hidden" id="HiddenPrpertyId"/> 
+        <input type="hidden" id="ArgentID"/> 
+        <input type="hidden" id="userID" value="<?php echo $this->session->userdata('empID'); ?>"/>
+
       </div>
       <div class="modal-body">
       <div class="row chat-window fluid" id="chat_window_1" >
         <div class="col-xs-12 col-md-12">
         	<div class="panel panel-default">
-                <div class="msg_container_base">
-                    <div class="row msg_container base_sent">
-                        <div class="col-md-10 col-xs-10">
-                            <div class="messages msg_sent">
-                                <p>that mongodb thing looks good, huh?
-                                tiny master db, and huge document store</p>
-                                <time datetime="2009-11-13T20:00">Timothy • 51 min</time>
-                            </div>
-                        </div>
-                        <div class="col-md-2 col-xs-2 avatar">
-                            <img src="http://www.bitrebels.com/wp-content/uploads/2011/02/Original-Facebook-Geek-Profile-Avatar-1.jpg" class=" img-responsive ">
-                        </div>
-                    </div>
-                    <div class="row msg_container base_receive">
-                        <div class="col-md-2 col-xs-2 avatar">
-                            <img src="http://www.bitrebels.com/wp-content/uploads/2011/02/Original-Facebook-Geek-Profile-Avatar-1.jpg" class=" img-responsive ">
-                        </div>
-                        <div class="col-md-10 col-xs-10">
-                            <div class="messages msg_receive">
-                                <p>that mongodb thing looks good, huh?
-                                tiny master db, and huge document store</p>
-                                <time datetime="2009-11-13T20:00">Timothy • 51 min</time>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row msg_container base_receive">
-                        <div class="col-md-2 col-xs-2 avatar">
-                            <img src="http://www.bitrebels.com/wp-content/uploads/2011/02/Original-Facebook-Geek-Profile-Avatar-1.jpg" class=" img-responsive ">
-                        </div>
-                        <div class="col-xs-10 col-md-10">
-                            <div class="messages msg_receive">
-                                <p>that mongodb thing looks good, huh?
-                                tiny master db, and huge document store</p>
-                                <time datetime="2009-11-13T20:00">Timothy • 51 min</time>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row msg_container base_sent">
-                        <div class="col-xs-10 col-md-10">
-                            <div class="messages msg_sent">
-                                <p>that mongodb thing looks good, huh?
-                                tiny master db, and huge document store</p>
-                                <time datetime="2009-11-13T20:00">Timothy • 51 min</time>
-                            </div>
-                        </div>
-                        <div class="col-md-2 col-xs-2 avatar">
-                            <img src="http://www.bitrebels.com/wp-content/uploads/2011/02/Original-Facebook-Geek-Profile-Avatar-1.jpg" class=" img-responsive ">
-                        </div>
-                    </div>
-                    <div class="row msg_container base_receive">
-                        <div class="col-md-2 col-xs-2 avatar">
-                            <img src="http://www.bitrebels.com/wp-content/uploads/2011/02/Original-Facebook-Geek-Profile-Avatar-1.jpg" class=" img-responsive ">
-                        </div>
-                        <div class="col-xs-10 col-md-10">
-                            <div class="messages msg_receive">
-                                <p>that mongodb thing looks good, huh?
-                                tiny master db, and huge document store</p>
-                                <time datetime="2009-11-13T20:00">Timothy • 51 min</time>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row msg_container base_sent">
-                        <div class="col-md-10 col-xs-10 ">
-                            <div class="messages msg_sent">
-                                <p>that mongodb thing looks good, huh?
-                                tiny master db, and huge document store</p>
-                                <time datetime="2009-11-13T20:00">Timothy • 51 min</time>
-                            </div>
-                        </div>
-                        <div class="col-md-2 col-xs-2 avatar">
-                            <img src="http://www.bitrebels.com/wp-content/uploads/2011/02/Original-Facebook-Geek-Profile-Avatar-1.jpg" class=" img-responsive ">
-                        </div>
-                    </div>
+                  <div class="msg_container_base col-md-12">
+                   
+                    
+                   
+                 
+                   
+                    
+                    
                 </div>
-                <div class="panel-footer">
+                <div class="panel-footer col-md-12">
                     <div class="input-group">
                         <input id="btn-input" type="text" class="form-control input-sm chat_input" placeholder="Write your message here..." />
                         <span class="input-group-btn">
@@ -3424,11 +3363,20 @@ $this->output->set_header("Pragma: no-cache");
     }
 
 
-    function chatModal() {
+    function chatModal(propertyId,argentId) {
         $('#chatModal').modal('show');
+        $('#HiddenPrpertyId').val("");
+        $('#ArgentID').val("");
+        $('#HiddenPrpertyId').val(propertyId);
+        $('#ArgentID').val(argentId);
+
+        Lode_chat_history();
+
     }
 
     function submit_report_data() {
+
+       
 
         $.ajax({
 
@@ -3436,7 +3384,8 @@ $this->output->set_header("Pragma: no-cache");
 
             dataType: 'json',
 
-            url: "<?php echo site_url('home_controller/submit_report_data'); ?>",
+            url: "<?php 
+             echo site_url('home_controller/submit_report_data'); ?>",
 
             data: $("#form_report").serialize(),
 
@@ -3565,49 +3514,114 @@ $(document).on('click', '.icon_close', function (e) {
        });
 
        function send_chat_message(){
+              var HiddenPrpertyId= $('#HiddenPrpertyId').val();     
+              var ArgentID= $('#ArgentID').val();
+              var userID=$('#userID').val();
+              var Message=$('#btn-input').val();  
 
+         $.ajax({
 
-           var message=$('#btn-input').val();
+            type: "POST",
 
+            url: "<?php echo base_url(); ?>" + "property/save_chat_message",
 
-            alert(message);
+            data: {HiddenPrpertyId: HiddenPrpertyId,ArgentID:ArgentID,userID:userID,Message:Message},
 
+            dataType: "text",
 
-            //  $.ajax({
+            cache: false,
 
-            // type: "POST",
+            beforeSend: function () {
 
-            // url: "<?php echo base_url(); ?>" + "property/save_property_bulk",
+                // startLoad();
 
-            // data: {data: data},
+            },
 
-            // dataType: "text",
+            success: function (data) {
+                    // stopLoad();
+                    
+                    Lode_chat_history();
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
 
-            // cache: false,
+              alert(jqXHR.responseText);
 
-            // beforeSend: function () {
+            }
 
-            //     startLoad();
-
-            // },
-
-            // success: function (data) {
-            //         stopLoad();
-            //        if(data=='saved'){
-            //            myAlert('s', 'Bulk csv import data Successfully');
-            //            load_property_table();
-            //        }else{
-            //             alert('Not saved!!!');
-            //        }
-            // },
-            // error: function (jqXHR, textStatus, errorThrown) {
-
-            //   alert(jqXHR.responseText);
-
-            // }
-
-            //  });
+             });
         } 
+
+      function  Lode_chat_history(){
+              var HiddenPrpertyId= $('#HiddenPrpertyId').val();     
+              var ArgentID= $('#ArgentID').val();
+              var userID=$('#userID').val();
+
+
+          $.ajax({
+
+              type: 'POST',
+
+              dataType: 'json',
+                //Property/getCity
+              url: "<?php echo site_url('Property/Lode_chat_history'); ?>",
+
+              data: {HiddenPrpertyId:HiddenPrpertyId,ArgentID:ArgentID,userID:userID},
+
+              cache: false,
+
+              beforeSend: function () {
+
+                  // startLoad();
+
+              },
+
+              success: function (data) {
+
+                $('.msg_container_base').html("");
+                var html="";
+                $(data.output).each(function (key, val) {
+
+                   if(val.createdBy==userID){
+                    html+='<div class="row msg_container col-md-12 base_receive">' +
+                             '<div class="col-md-10 col-xs-10"> <div class="messages msg_sent">'+
+                                 ' <p>'+val.message+'</p>'+
+                                     '<time datetime="2009-11-13T20:00">'+val.Ename1+' •'+val.createdDate+' </time>'+
+                             '</div></div>'+
+                            ' <div class="col-md-2 col-xs-2 avatar">'+
+                                    ' <img src="http://www.bitrebels.com/wp-content/uploads/2011/02/Original-Facebook-Geek-Profile-Avatar-1.jpg" class=" img-responsive ">'+
+                             '</div>'+
+                           '</div>';
+                   }else{
+                    html+='<div class="row msg_container col-md-12 base_sent">' +
+                             '<div class="col-md-10 col-xs-10"> <div class="messages msg_sent">'+
+                                 ' <p>'+val.message+'</p>'+
+                                     '<time datetime="2009-11-13T20:00">'+val.Ename1+' •'+val.createdDate+' </time>'+
+                             '</div></div>'+
+                            ' <div class="col-md-2 col-xs-2 avatar">'+
+                                    ' <img src="http://www.bitrebels.com/wp-content/uploads/2011/02/Original-Facebook-Geek-Profile-Avatar-1.jpg" class=" img-responsive ">'+
+                             '</div>'+
+                           '</div>';
+                   }
+                   
+                });
+               
+              
+                 $('.msg_container_base').html(html);
+                 
+
+              },
+
+              error: function (jqXHR, textStatus, errorThrown) {
+
+                  alert(jqXHR.responseText);
+
+              
+              }
+
+          });
+
+      }
+
 // -----------------------chat script code end()---------------------
 
 

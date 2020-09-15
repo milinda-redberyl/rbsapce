@@ -246,5 +246,10 @@ $route['review_manager'] = 'Article/manage_review_controller';
 
 $route['verify_user']='Property/user_verify';
 
+$route['chat']='Property/chat';
+
+
+
+
 
 

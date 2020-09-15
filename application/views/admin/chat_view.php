@@ -197,9 +197,9 @@ $pending_property_count = count($pending_property_r);
 
                             <div class="tile-right">
 
-                                <div class="tile-number"><?php echo $pending_property_count ?></div>
+                                <div class="tile-number"><?php  ?></div>
 
-                                <div class="tile-description">Pending approval property</div>
+                                <div class="tile-description">Not seen Chat</div>
 
                             </div>
 
@@ -221,7 +221,7 @@ $pending_property_count = count($pending_property_r);
 
 <div>
 
-    <h3>Manage Property <!--[<i class="fa fa-plus green"></i> <i class="fa fa-pencil-square-o blue"></i> <i
+    <h3>Manage Chat <!--[<i class="fa fa-plus green"></i> <i class="fa fa-pencil-square-o blue"></i> <i
 
             class="fa fa-times red"></i> ]-->
 
@@ -229,11 +229,7 @@ $pending_property_count = count($pending_property_r);
 
          <button class="btn btn-default btn-xs" type="button" onclick="load_property_table()">Refresh <i
 
-                 class="fa fa-refresh"></i></button>&nbsp;<button class="btn btn-primary btn-xs " type="button"
-
-                                                                  onclick="init_addProperty()">Add Property <i
-
-                    class="fa fa-plus"></i></button>
+                 class="fa fa-refresh"></i>
 
        </span>
 
@@ -249,39 +245,15 @@ $pending_property_count = count($pending_property_r);
 
     <tr>
 
-        <!-- <th>#</th>
+        <!-- -->
 
-        <th>Property Type</th>
+        <th>User Name</th>
 
-        <th>Category Type</th>
+        <th><i class="fa fa-comment"></i> View Chat</th>
 
-        <th><i class="fa fa-home"></i> Property Name</th>
+        <!-- <th>Status</th>
 
-        <th><i class="fa fa-money"></i> Price</th>
-
-        <th>Area</th>
-
-        <th>Address</th>
-
-        <th><i class="fa fa-phone"></i> Telephone</th>
-
-        <th>Permit No</th>
-
-        <th>Reference</th> -->
-
-        <th>Reference</th>
-
-        <th><i class="fa fa-home"></i> Property Name</th>
-
-        <th>Agent</th>
-
-        <th>Telephone</th>
-
-        <th>Company Name</th>
-
-        <th>Status</th>
-
-        <th>&nbsp;</th>
+        <th>&nbsp;</th> -->
 
     </tr>
 
@@ -319,7 +291,7 @@ $pending_property_count = count($pending_property_r);
 
             "StateSave": true,
 
-            "sAjaxSource": "<?php echo site_url('Property/get_property_dataTable'); ?>",
+            "sAjaxSource": "<?php echo site_url('Property/Lode_chat_history_short_user_wise'); ?>",
 
             "aaSorting": [[1, 'desc']],
 
@@ -337,39 +309,13 @@ $pending_property_count = count($pending_property_r);
 
             "aoColumns": [
 
-                /*{"mData": "property_id"},
+                {"mData": "user_id"},
 
-                {"mData": "property_type_name"},
+                {"mData": "btn_view"},
 
-                {"mData": "category_name"},
+                // {"mData": "property_active_status"},
 
-                {"mData": "property_name"},
-
-                {"mData": "property_price"},
-
-                {"mData": "area"},
-
-                {"mData": "property_address"},
-
-                {"mData": "telephone_number"},
-
-                {"mData": "permit_No"},
-
-                {"mData": "reference"},*/
-
-                {"mData": "reference"},
-
-                {"mData": "property_name"},
-
-                {"mData": "Ename1"},
-
-                {"mData": "telephone_number"},
-
-                {"mData": "company_name"},
-
-                {"mData": "property_active_status"},
-
-                {"mData": "btn_set"}
+                // {"mData": "btn_set"}
 
             ],
 
