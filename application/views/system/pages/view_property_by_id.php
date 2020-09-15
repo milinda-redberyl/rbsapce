@@ -3556,5 +3556,64 @@ $(document).on('click', '.icon_close', function (e) {
     $( "#chat_window_1" ).remove();
 });
 
+// -----------------------chat script code strat()-------------------
+
+       $('#btn-chat').on('click',function(){
+
+        send_chat_message();
+       
+       });
+
+       function send_chat_message(){
+
+
+           var message=$('#btn-input').val();
+
+
+            alert(message);
+
+
+            //  $.ajax({
+
+            // type: "POST",
+
+            // url: "<?php echo base_url(); ?>" + "property/save_property_bulk",
+
+            // data: {data: data},
+
+            // dataType: "text",
+
+            // cache: false,
+
+            // beforeSend: function () {
+
+            //     startLoad();
+
+            // },
+
+            // success: function (data) {
+            //         stopLoad();
+            //        if(data=='saved'){
+            //            myAlert('s', 'Bulk csv import data Successfully');
+            //            load_property_table();
+            //        }else{
+            //             alert('Not saved!!!');
+            //        }
+            // },
+            // error: function (jqXHR, textStatus, errorThrown) {
+
+            //   alert(jqXHR.responseText);
+
+            // }
+
+            //  });
+        } 
+// -----------------------chat script code end()---------------------
+
+
+
+
+
+
 </script>
 

@@ -81,8 +81,8 @@
     display: flex;
 }
 img {
-    display: block;
-    width: 100%;
+    /* display: block;
+    width: 100%; */
 }
 .avatar {
     position: relative;
