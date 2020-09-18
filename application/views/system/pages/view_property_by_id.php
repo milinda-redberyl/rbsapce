@@ -3364,13 +3364,19 @@ $this->output->set_header("Pragma: no-cache");
 
 
     function chatModal(propertyId,argentId) {
-        $('#chatModal').modal('show');
-        $('#HiddenPrpertyId').val("");
-        $('#ArgentID').val("");
-        $('#HiddenPrpertyId').val(propertyId);
-        $('#ArgentID').val(argentId);
+    var userID=    $('#userID').val();
+           if(userID=="" || userID==0){
+            $('#loginModal').modal('show');
+           }else{
+            $('#chatModal').modal('show');
+            $('#HiddenPrpertyId').val("");
+            $('#ArgentID').val("");
+            $('#HiddenPrpertyId').val(propertyId);
+            $('#ArgentID').val(argentId);
 
-        Lode_chat_history();
+            Lode_chat_history();
+           }
+        
 
     }
 
@@ -3581,27 +3587,33 @@ $(document).on('click', '.icon_close', function (e) {
                 var html="";
                 $(data.output).each(function (key, val) {
 
-                   if(val.createdBy==userID){
-                    html+='<div class="row msg_container col-md-12 base_receive">' +
-                             '<div class="col-md-10 col-xs-10"> <div class="messages msg_sent">'+
-                                 ' <p>'+val.message+'</p>'+
-                                     '<time datetime="2009-11-13T20:00">'+val.Ename1+' •'+val.createdDate+' </time>'+
-                             '</div></div>'+
-                            ' <div class="col-md-2 col-xs-2 avatar">'+
-                                    ' <img src="http://www.bitrebels.com/wp-content/uploads/2011/02/Original-Facebook-Geek-Profile-Avatar-1.jpg" class=" img-responsive ">'+
-                             '</div>'+
-                           '</div>';
-                   }else{
-                    html+='<div class="row msg_container col-md-12 base_sent">' +
-                             '<div class="col-md-10 col-xs-10"> <div class="messages msg_sent">'+
-                                 ' <p>'+val.message+'</p>'+
-                                     '<time datetime="2009-11-13T20:00">'+val.Ename1+' •'+val.createdDate+' </time>'+
-                             '</div></div>'+
-                            ' <div class="col-md-2 col-xs-2 avatar">'+
-                                    ' <img src="http://www.bitrebels.com/wp-content/uploads/2011/02/Original-Facebook-Geek-Profile-Avatar-1.jpg" class=" img-responsive ">'+
-                             '</div>'+
-                           '</div>';
-                   }
+                    if(val.createdBy==userID){
+    
+                     html+=' <div class="row msg_container base_sent">'+
+                          '<div class="col-md-10 col-xs-10">'+
+                         '<div class="messages msg_sent">'+
+                         ' <p>'+val.message+'</p>'+
+                          '<time datetime="2009-11-13T20:00">'+val.Ename1+' •'+val.createdDate+' </time>'+
+                         ' </div>'+
+                        ' </div>'+
+                     '<div class="col-md-2 col-xs-2 avatar">'+
+                    ' <img src="http://www.bitrebels.com/wp-content/uploads/2011/02/Original-Facebook-Geek-Profile-Avatar-1.jpg" class=" img-responsive ">'+
+                     ' </div>'+
+                        ' </div>';
+                }else if(val.createdBy==ArgentID){
+
+                 html+='<div class="row msg_container base_receive">'+
+                 '<div class="col-md-2 col-xs-2 avatar">'+
+                 '<img src="http://www.bitrebels.com/wp-content/uploads/2011/02/Original-Facebook-Geek-Profile-Avatar-1.jpg" class=" img-responsive ">'+
+                '</div>'+
+                '<div class="col-md-10 col-xs-10">'+
+                '<div class="messages msg_receive">'+
+                 ' <p>'+val.message+'</p>'+
+                 '<time datetime="2009-11-13T20:00">'+val.Ename1+' •'+val.createdDate+' </time>'+
+                    ' </div>'+
+                  '</div>'+
+             ' </div>';
+}
                    
                 });
                
@@ -3623,8 +3635,6 @@ $(document).on('click', '.icon_close', function (e) {
       }
 
 // -----------------------chat script code end()---------------------
-
-
 
 
 

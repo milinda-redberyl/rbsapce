@@ -234,16 +234,16 @@ class Property extends CI_Controller
 
 
     function Lode_chat_history_short_user_wise(){
-
-        $this->datatables->select('*', false)
+        $empID = $this->session->userdata('empID');
+        $this->datatables->select('property_id,argent_id,user_id,message', false)
 
             ->from('chat_history p')
-
+            ->where('p.argent_id', $empID) 
             ->where('p.status', 1) 
+             ->group_by('user_id');
+           
             
-            ->group_by('user_id');
-
-       $this->datatables->add_column('btn_view', '$1', 'btn_view(user_id,argent_id,property_id)');
+       $this->datatables->add_column('btn_view', '$1', 'get_dt_col_ViewChat(property_id,argent_id,user_id)');
 
         echo $this->datatables->generate();
     }

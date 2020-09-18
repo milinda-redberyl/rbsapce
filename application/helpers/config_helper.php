@@ -294,7 +294,26 @@ if (!function_exists('get_dt_col_property')) {
 
     {
 
-        $btn = '<span class="pull-right"><span><a onclick="load_property(' . $user_id . ','.$argent_id.','.$property_id .')"><i class="ace-icon fa fa-pencil bigger-130"></i></a></span> &nbsp;&nbsp; | &nbsp;&nbsp; <span><a onclick="delete_single_property(' . $id . ')" class="red"><i class="ace-icon fa fa-trash-o bigger-130"></i></a></span></span>';
+        $btn = '<span class="pull-right"><span><a onclick="load_property(' . $id . ')"><i class="ace-icon fa fa-pencil bigger-130"></i></a></span> &nbsp;&nbsp; | &nbsp;&nbsp; <span><a onclick="delete_single_property(' . $id . ')" class="red"><i class="ace-icon fa fa-trash-o bigger-130"></i></a></span></span>';
+
+
+
+        return $btn;
+
+    }
+
+} 
+
+
+if (!function_exists('get_dt_col_ViewChat')) {
+
+    function get_dt_col_ViewChat($property_id,$argent_id,$user_id)
+
+    {
+
+        $btn = '<span class="pull-center">
+                <span><a onclick="chatModal(' . $property_id . ',' . $argent_id . ',' . $user_id . ')" class="btn btn-primary"><i class="ace-icon fa fa-comment bigger-130">View Chat History</i></a> </span>
+                </span>';
 
 
 
@@ -303,6 +322,7 @@ if (!function_exists('get_dt_col_property')) {
     }
 
 }
+
 
 
 

@@ -147,7 +147,8 @@ echo load_lib_dataTable();
 
 <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/chosen.min.css"/>
 
-<link rel="stylesheet" href="<?php echo base_url(); ?>assets/system/css/style.css"/>
+<link rel="stylesheet" href="<?php echo base_url(); ?>assets/system/css/style.css"/> 
+<link href="<?php echo base_url('assets/system/') ?>css/chatbox.css" rel="stylesheet"> 
 
 <script src="<?php echo base_url(); ?>assets/dropzone/dropzone.js"></script>
 
@@ -1581,6 +1582,67 @@ $pending_property_count = count($pending_property_r);
 
 </div>
 
+<!----- Chat Modal modal  ---->
+
+<div id="chatModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title"><span class="glyphicon glyphicon-comment"></span>&nbsp;Chat - Owner</h4> 
+        <input type="hidden" id="HiddenPrpertyId"/> 
+        <input type="hidden" id="ArgentID"/> 
+        <input type="hidden" id="userID" value="<?php echo $this->session->userdata('empID'); ?>"/>
+
+      </div>
+      <div class="modal-body">
+      <div class="row chat-window fluid" id="chat_window_1" >
+        <div class="col-xs-12 col-md-12">
+        	<div class="panel panel-default">
+                  <div class="msg_container_base col-md-12">
+                   
+                    
+                   
+                 
+                   
+                    
+                    
+                </div>
+                <div class="panel-footer col-md-12">
+                    <div class="input-group">
+                        <input id="btn-input" type="text" class="form-control input-sm chat_input" placeholder="Write your message here..." />
+                        <span class="input-group-btn">
+                        <button class="btn btn-primary btn-sm" id="btn-chat">Send</button>
+                        </span>
+                    </div>
+                </div>
+    		</div>
+        </div>
+    </div>
+    
+    <div class="btn-group dropup">
+        <!-- <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+            <span class="glyphicon glyphicon-cog"></span>
+            <span class="sr-only">Toggle Dropdown</span>
+        </button>
+        <ul class="dropdown-menu" role="menu">
+            <li><a href="#" id="new_chat"><span class="glyphicon glyphicon-plus"></span> Novo</a></li>
+            <li><a href="#"><span class="glyphicon glyphicon-list"></span> Ver outras</a></li>
+            <li><a href="#"><span class="glyphicon glyphicon-remove"></span> Fechar Tudo</a></li>
+            <li class="divider"></li>
+            <li><a href="#"><span class="glyphicon glyphicon-eye-close"></span> Invisivel</a></li>
+        </ul> -->
+    </div>
+      </div>
+     
+    </div>
+
+  </div>
+</div>
+
+<!----- end chat modal  ----> 
 
 
 <script>
@@ -3134,6 +3196,151 @@ $pending_property_count = count($pending_property_r);
 
 
     });
+
+
+
+// -----------------------chat script code strat()-------------------
+
+$('#btn-chat').on('click',function(){
+
+send_chat_message();
+
+});
+
+function send_chat_message(){
+      var HiddenPrpertyId= $('#HiddenPrpertyId').val();     
+      var ArgentID= $('#ArgentID').val();
+      var userID=$('#userID').val();
+      var Message=$('#btn-input').val();  
+
+ $.ajax({
+
+    type: "POST",
+
+    url: "<?php echo base_url(); ?>" + "property/save_chat_message",
+
+    data: {HiddenPrpertyId: HiddenPrpertyId,ArgentID:ArgentID,userID:userID,Message:Message},
+
+    dataType: "text",
+
+    cache: false,
+
+    beforeSend: function () {
+
+        // startLoad();
+
+    },
+
+    success: function (data) {
+            // stopLoad();
+            
+            Lode_chat_history();
+    },
+    error: function (jqXHR, textStatus, errorThrown) {
+
+      alert(jqXHR.responseText);
+
+    }
+
+     });
+} 
+
+function chatModal(propertyId,argentId,userID) {
+        $('#chatModal').modal('show');
+        $('#HiddenPrpertyId').val("");
+        $('#ArgentID').val("");
+        $('#userID').val("");
+        $('#HiddenPrpertyId').val(propertyId);
+        $('#ArgentID').val(argentId);
+        $('#userID').val(userID);
+
+        Lode_chat_history();
+
+    }
+
+function  Lode_chat_history(propertyId,argentId,userID){  
+
+        
+
+      var HiddenPrpertyId= $('#HiddenPrpertyId').val();     
+      var ArgentID= $('#ArgentID').val();
+      var userID=$('#userID').val();
+
+
+  $.ajax({
+
+      type: 'POST',
+
+      dataType: 'json',
+        //Property/getCity
+      url: "<?php echo site_url('Property/Lode_chat_history'); ?>",
+
+      data: {HiddenPrpertyId:HiddenPrpertyId,ArgentID:ArgentID,userID:userID},
+
+      cache: false,
+
+      beforeSend: function () {
+
+          // startLoad();
+
+      },
+
+      success: function (data) {
+
+        $('.msg_container_base').html("");
+        var html="";
+        $(data.output).each(function (key, val) {
+
+           if(val.createdBy==userID){
+    
+                   html+=' <div class="row msg_container base_sent">'+
+                        '<div class="col-md-10 col-xs-10">'+
+                            '<div class="messages msg_sent">'+
+                            ' <p>'+val.message+'</p>'+
+                             '<time datetime="2009-11-13T20:00">'+val.Ename1+' •'+val.createdDate+' </time>'+
+                           ' </div>'+
+                       ' </div>'+
+                       '<div class="col-md-2 col-xs-2 avatar">'+
+                           ' <img src="http://www.bitrebels.com/wp-content/uploads/2011/02/Original-Facebook-Geek-Profile-Avatar-1.jpg" class=" img-responsive ">'+
+                       ' </div>'+
+                   ' </div>';
+           }else if(val.createdBy==ArgentID){
+         
+                   html+='<div class="row msg_container base_receive">'+
+                        '<div class="col-md-2 col-xs-2 avatar">'+
+                         '<img src="http://www.bitrebels.com/wp-content/uploads/2011/02/Original-Facebook-Geek-Profile-Avatar-1.jpg" class=" img-responsive ">'+
+                        '</div>'+
+                        '<div class="col-md-10 col-xs-10">'+
+                        '<div class="messages msg_receive">'+
+                        ' <p>'+val.message+'</p>'+
+                        '<time datetime="2009-11-13T20:00">'+val.Ename1+' •'+val.createdDate+' </time>'+
+                           ' </div>'+
+                        '</div>'+
+                   ' </div>';
+           }
+           
+        });
+       
+      
+         $('.msg_container_base').html(html);
+         
+
+      },
+
+      error: function (jqXHR, textStatus, errorThrown) {
+
+          alert(jqXHR.responseText);
+
+      
+      }
+
+  });
+
+} 
+
+
+
+// -----------------------chat script code end()---------------------
 
 </script>
 

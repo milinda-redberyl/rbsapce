@@ -72,7 +72,11 @@
 
                     </li>
 
+<!--                    <li><a href="--><?php //echo site_url('partner_login') ?><!--">--><?php //echo $this->lang->line('customer_register') ?><!--</a></li>-->
+
+
                     <li><a href="<?php echo site_url('partner_login') ?>"><?php echo $this->lang->line('partner_register') ?></a></li>
+s
 
                     <!--<li><a href="<?php echo site_url('project') ?>">NEW PROJECTS</a></li>-->
 

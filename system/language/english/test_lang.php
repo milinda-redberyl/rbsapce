@@ -26,6 +26,7 @@ $lang['space'] = 'SPACE';
 $lang['find_space'] = 'FIND A SPACE';
 $lang['list_space'] = 'LIST A SPACE';
 $lang['partner_register'] = 'PARTNER REGISTRATION';
+$lang['customer_register'] = 'CUSTOMER REGISTRATION';
 $lang['more'] = 'MORE';
 $lang['blog'] = 'BLOG';
 

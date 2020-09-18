@@ -264,23 +264,11 @@ if (!function_exists('get_dt_col_property')) {
 
     }
 
-}
-
-if (!function_exists('btn_view')) {
-
-    function btn_view($id)
-
-    {
-
-        $btn = '<span class="pull-right"><span><a onclick="load_property(' . $id . ')"><i class="ace-icon fa fa-pencil bigger-130"></i></a></span> &nbsp;&nbsp; | &nbsp;&nbsp; <span><a onclick="load_property(' . $id . ')" class="red"><i class="ace-icon fa fa-trash-o bigger-130"></i></a></span></span>';
+} 
 
 
 
-        return $btn;
 
-    }
-
-}
 
 
 

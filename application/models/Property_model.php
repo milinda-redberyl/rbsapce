@@ -234,7 +234,7 @@ class Property_model extends ERP_Model
 
         $CI->db->from('chat_history as se'); 
 
-        $CI->db->join('srp_employeesdetails','srp_employeesdetails.EidNo = se.user_id','left');
+        $CI->db->join('srp_employeesdetails','srp_employeesdetails.EidNo = se.createdBy','left');
 
         $CI->db->where('se.status', '1');
 
