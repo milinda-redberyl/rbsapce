@@ -160,6 +160,9 @@ $route['companyOverview/(:num)/(:num)'] = 'home_controller/view_single_company';
 $route['companyOverview/(:num)'] = 'home_controller/view_single_company';
 
 $route['partner_login'] = 'home_controller/broker_login';
+//customer
+$route['customer_login'] = 'home_controller/customer_login';
+
 
 
 

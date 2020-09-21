@@ -224,6 +224,10 @@ class Property extends CI_Controller
 
         }
 
+        $userStatus = $this->session->userdata('userStatus');
+        if($userStatus==1){
+            $this->datatables->where('p.agent_id', current_userID());
+        }
 
 
         //->edit_column('edit', '$1', 'col_pos_packItem(id)');
@@ -235,12 +239,39 @@ class Property extends CI_Controller
 
     function Lode_chat_history_short_user_wise(){
         $empID = $this->session->userdata('empID');
-        $this->datatables->select('property_id,argent_id,user_id,message', false)
+        $userStatus= $this->session->userdata('userStatus');
 
-            ->from('chat_history p')
-            ->where('p.argent_id', $empID) 
-            ->where('p.status', 1) 
-             ->group_by('user_id');
+        if($userStatus==2){
+
+            //Customer
+            $this->datatables->select('property_id,argent_id,user_id,message,em.Ename1 as en1,me.Ename1 as en2 ', false)
+                ->join('srp_employeesdetails em', 'em.EIdNo = p.user_id', 'LEFT')
+                ->join('srp_employeesdetails me', 'me.EIdNo = p.argent_id', 'LEFT')
+                ->from('chat_history p')
+                ->where('p.user_id', $empID)
+                ->where('p.status', 1)
+                ->group_by('user_id');
+
+
+        }else if($userStatus==1){
+            //Partner
+            $this->datatables->select('property_id,argent_id,user_id,message,em.Ename1 as en1,me.Ename1 as en2 ', false)
+                ->join('srp_employeesdetails em', 'em.EIdNo = p.user_id', 'LEFT')
+                ->join('srp_employeesdetails me', 'me.EIdNo = p.argent_id', 'LEFT')
+                ->from('chat_history p')
+                ->where('p.argent_id', $empID)
+                ->where('p.status', 1)
+                ->group_by('user_id');
+        }else{
+            //Admin
+            $this->datatables->select('property_id,argent_id,user_id,message,em.Ename1 as en1,me.Ename1 as en2 ', false)
+                ->join('srp_employeesdetails em', 'em.EIdNo = p.user_id', 'LEFT')
+                ->join('srp_employeesdetails me', 'me.EIdNo = p.argent_id', 'LEFT')
+                ->from('chat_history p')
+                ->where('p.status', 1)
+                ->group_by('user_id');
+        }
+
            
             
        $this->datatables->add_column('btn_view', '$1', 'get_dt_col_ViewChat(property_id,argent_id,user_id)');
@@ -441,7 +472,7 @@ class Property extends CI_Controller
 
                 echo json_encode(array('error' => 0, 'message' => 'Record successfully updated', 'property_id' => $property_id, 'uploadStatus' => $uploadStatus));
 
-            } else {
+            }else{
 
                 /** Insert */
 

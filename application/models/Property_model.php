@@ -70,6 +70,7 @@ class Property_model extends ERP_Model
 
         $inputData = $this->input->post();
 
+
         $this->db->insert('property', $inputData);
 
         $insert_id = $this->db->insert_id();

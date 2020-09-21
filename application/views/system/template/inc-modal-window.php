@@ -50,11 +50,18 @@
 
                         </div>
 
-                       <!-- <div class="form-group">
+                        <div class="form-group">
 
-                            <?php // echo form_dropdown('countryID', drop_country(), '1', 'class="form-control select2 countryID" '); ?>
 
-                        </div> -->
+                            <?php
+
+                            $country_list = drop_getCountry();
+
+                            echo form_dropdown('country_id', $country_list, '', 'class="chosen-select form-control" id="country_id"');
+
+                            ?>
+
+                        </div>
 
                         <div class="form-group">
 
@@ -182,6 +189,10 @@
 
                                    placeholder="Confirm Password*">
 
+                        </div>
+
+                        <div class="form-group" style="display: none;">
+                            <input class="form-control" name="userStatus" type="hidden" value="1" id="userStatus">
                         </div>
 
 
@@ -594,5 +605,53 @@
 
     }
 
-</script>
+    /////////////set County////////////////
+    $('#country_id').on('change',function () {
 
+        var CountryName=$('#country_id').val();
+
+        $.ajax({
+
+            type: 'POST',
+
+            dataType: 'json',
+
+            url: "<?php echo site_url('Property/getCity'); ?>",
+
+            data: {CountryName: CountryName},
+
+            cache: false,
+
+            beforeSend: function () {
+
+                // startLoad();
+
+            },
+
+            success: function (data) {
+
+
+                var html="";
+                html+=' <option disabled="disabled" value="" selected="selected">Select</option>';
+                $(data.output).each(function (key, val) {
+
+                    html+='<option value='+val.city_id+'>'+val.city_name+'</option>';
+                });
+
+                $('#city_id').html("");
+                $('#city_id').html(html);
+
+            },
+
+            error: function (jqXHR, textStatus, errorThrown) {
+
+                alert(jqXHR.responseText);
+
+                // myAlert('e', jqXHR + ' ' + textStatus + ' ' + errorThrown)
+
+            }
+
+        });
+
+    });
+</script>

@@ -523,7 +523,7 @@ $pending_property_count = count($pending_property_r);
 
                     <input type="hidden" value="0" id="property_id" name="property_id">
 
-
+                    <input type="hidden" value="<?php echo current_userID() ?>" id="agent_id"  name="agent_id">
 
                     <div class="row">
 

@@ -248,7 +248,9 @@ $pending_property_count = count($pending_property_r);
 
         <!-- -->
 
-        <th>User Name</th>
+        <th>Customer Name</th>
+
+        <th>Argent Name</th>
 
         <th><i class="fa fa-comment"></i> View Chat</th>
 
@@ -310,9 +312,11 @@ $pending_property_count = count($pending_property_r);
 
             "aoColumns": [
 
-                {"mData": "user_id"},
+              {"mData": "en1"},
 
-                {"mData": "btn_view"},
+              {"mData": "en2"},
+
+              {"mData": "btn_view"},
 
                 // {"mData": "property_active_status"},
 
@@ -463,6 +467,7 @@ $pending_property_count = count($pending_property_r);
                 </button>
 
                 <h4 class="modal-title"><i class="fa fa-building-o"></i> Add Property </h4></div>
+
 
             <div class="modal-body" style="min-height: 200px; ">
 

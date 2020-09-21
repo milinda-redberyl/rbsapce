@@ -174,6 +174,8 @@ class Login_model extends CI_Model
 
         $data['Ename1'] = trim($this->input->post('firstName'));  //same value set Ename1 and Ename2
 
+        $data['Ename3'] = trim($this->input->post('lastName'));
+
         $data['BRN'] = trim($this->input->post('registrationNumber'));
 
         $data['registeredCompanyName'] = trim($this->input->post('companyName'));
@@ -184,7 +186,17 @@ class Login_model extends CI_Model
 
         $data['EpTelephone'] = trim($this->input->post('EpTelephone'));
 
+        $data['countryID'] = trim($this->input->post('country_id'));
+
         $data['EpCity'] = trim($this->input->post('city_id'));
+
+        $data['userStatus'] = trim($this->input->post('userStatus'));
+
+        if(2==trim($this->input->post('userStatus'))){
+            $data['isPartner'] = 2;
+        }else if(1==trim($this->input->post('userStatus'))){
+            $data['isPartner'] = 1;
+        }
 
 
         $pwd = trim($this->input->post('Password'));

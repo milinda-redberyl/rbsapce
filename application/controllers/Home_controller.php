@@ -1293,6 +1293,34 @@ class Home_controller extends CI_Controller
 
     }
 
+    function customer_login()
+
+    {
+
+        $id = $this->uri->segment(2);
+
+        $data['title'] = 'RB Space | Broker Login | ' . meta_description();
+
+
+        $data['home'] = false;
+
+        $data['recommended_properties'] = false;
+
+        $data['agent_search'] = false;
+
+        $data['classic_search'] = false;
+
+        $data['suggestion'] = false;
+
+        $data['search'] = false;
+
+
+        $data['content_page'] = 'system/pages/customer_login';
+
+        $this->load->view('system/template/home-template', $data);
+
+    }
+
 
 
 

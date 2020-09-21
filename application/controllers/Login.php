@@ -908,6 +908,8 @@ class Login extends CI_Controller
 
         $this->form_validation->set_rules('firstName', 'First Name', 'trim|required');
 
+        $this->form_validation->set_rules('lastName', 'Last Name', 'trim|required');
+
         $this->form_validation->set_rules('companyName', 'Company Name', 'trim');
 
         $this->form_validation->set_rules('registrationNumber', 'Registration Number', 'trim');

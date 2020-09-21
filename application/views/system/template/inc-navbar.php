@@ -72,11 +72,11 @@
 
                     </li>
 
-<!--                    <li><a href="--><?php //echo site_url('partner_login') ?><!--">--><?php //echo $this->lang->line('customer_register') ?><!--</a></li>-->
+                    <li><a href="<?php echo site_url('customer_login') ?>"><?php echo $this->lang->line('customer_register') ?></a></li>
 
 
                     <li><a href="<?php echo site_url('partner_login') ?>"><?php echo $this->lang->line('partner_register') ?></a></li>
-s
+
 
                     <!--<li><a href="<?php echo site_url('project') ?>">NEW PROJECTS</a></li>-->
 
@@ -113,15 +113,22 @@ s
 
 
                     if ($this->session->userdata('empname')) {
-
+                        if(2==$this->session->userdata('userStatus')){
                         ?>
 
-                        <li><a href="<?php echo site_url('property') ?>"> <i class="fa fa-home"></i> MY PROPERTY</a>
+                        <li><a href="<?php echo site_url('chat') ?>"> <i class="fa fa-home"></i> MY PROPERTY</a>
 
                         </li>
 
                         <?php
+                        }else{
+                            ?>
+                            <li><a href="<?php echo site_url('property') ?>"> <i class="fa fa-home"></i> MY PROPERTY</a>
 
+                            </li>
+
+                            <?php
+                        }
                     } ?>
 
                     <!--<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"

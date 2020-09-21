@@ -794,6 +794,10 @@ if (!function_exists('load_colorcode_role')) {
 
             $status .= '<span class="label label-sm label-success"><i class="fa fa fa-building"></i> Partner</span></td>';
 
+        }else if ($isPartner == 2) {
+
+            $status .= '<span class="label label-sm label-purple"><i class="fa fa fa-user"></i> Customer</span></td>';
+
         } else {
 
             $status .= '<span class="label label-sm label-info"><i class="fa fa fa-user"></i> Agent</span></td>';

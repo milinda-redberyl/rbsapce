@@ -8,7 +8,7 @@ $isCompany = $this->session->userdata('isCompany');
 
 $isPartner = $this->session->userdata('isPartner');
 
-
+$userStatus = $this->session->userdata('userStatus');
 
 if ($isSystemAdmin == 1 || $isAgent == 1) {
 
@@ -168,7 +168,8 @@ if ($isCompany == 1) {
 
 }
 
-if ($isPartner == 1) {
+
+if ($userStatus == 1 ) {
 
     ?>
 
@@ -188,23 +189,23 @@ if ($isPartner == 1) {
 
 
 
-    <li>
-
-        <a href="<?php echo site_url('users') ?>">
-
-            <!--<i class="menu-icon fa fa-tachometer"></i>--> <!--<i class="menu-icon  fa fa-puzzle-piece"></i>-->
-
-            <i class="menu-icon fa fa-users"></i>
-
-            <span class="menu-text"> Agents </span>
-
-        </a>
-
-
-
-        <b class="arrow"></b>
-
-    </li>
+<!--    <li>-->
+<!---->
+<!--        <a href="--><?php //echo site_url('users') ?><!--">-->
+<!---->
+<!--            <i class="menu-icon fa fa-tachometer"></i>--> <!--<i class="menu-icon  fa fa-puzzle-piece"></i>-->
+<!---->
+<!--            <i class="menu-icon fa fa-users"></i>-->
+<!---->
+<!--            <span class="menu-text"> Agents </span>-->
+<!---->
+<!--        </a>-->
+<!---->
+<!---->
+<!---->
+<!--        <b class="arrow"></b>-->
+<!---->
+<!--    </li>-->
 
 
 
@@ -259,8 +260,75 @@ if ($isPartner == 1) {
 
 
     <?php
+    }else if ($userStatus == 2 ) {
 
-}
+    ?>
+
+    <li>
+
+        <a href="<?php echo site_url('dashboard') ?>">
+
+            <i class="menu-icon fa fa-arrows"></i>
+
+            <span class="menu-text"> Dashboard </span>
+
+        </a>
+
+        <b class="arrow"></b>
+
+    </li>
+    <li>
+
+        <a href="<?php echo site_url('/') ?>">
+
+            <!--<i class="menu-icon fa fa-home"></i>-->
+
+            <i class="menu-icon fa fa-globe"></i>
+
+            <span class="menu-text">  Website   </span>
+
+        </a>
+
+        <b class="arrow"></b>
+
+    </li>
+    <li>
+
+        <a href="<?php echo site_url('/chat') ?>">
+
+            <!--<i class="menu-icon fa fa-home"></i>-->
+
+            <i class="menu-icon fa fa-comment"></i>
+
+            <span class="menu-text">  Chat   </span>
+
+        </a>
+
+        <b class="arrow"></b>
+
+    </li>
+
+
+
+    <?php
+
+}else{?>
+    <li>
+
+        <a href="<?php echo site_url('/chat') ?>">
+
+            <!--<i class="menu-icon fa fa-home"></i>-->
+
+            <i class="menu-icon fa fa-comment"></i>
+
+            <span class="menu-text">  Chat   </span>
+
+        </a>
+
+        <b class="arrow"></b>
+
+    </li>
+<?php }
 
 if ($isSystemAdmin == 1) {
 

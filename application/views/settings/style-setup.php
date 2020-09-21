@@ -23,8 +23,15 @@ if ($this->session->all_userdata()) {
     $user_details = $this->db->query($user_details_q)->result_array();
 
     $full_name = $user_details[0]['Ename1'];
+    $last_name = $user_details[0]['Ename3'];
     $myProfile = $user_details[0]['myProfile'];
+    $EcAddress1 = $user_details[0]['EcAddress1'];
+    $EpMobile = $user_details[0]['EpMobile'];
+    $EpTelephone = $user_details[0]['EpTelephone'];
+
+//    $EpCity-$user_details[0]['EpCity'];
     $UserName = $user_details[0]['UserName'];
+
     if ($user_details[0]['EmpImage'] != "") {
         $profile_pic = base_url('uploads/agents/' . $user_details[0]['EmpImage']);
     }
@@ -78,9 +85,73 @@ if ($this->session->all_userdata()) {
 
                                 <div class="profile-info-value">
                                     <span>*******</span>
-                                    <a href="javascript:;" onclick="edit_user(<?php echo $empID; ?>);">Change</a>
+<!--                                    <a href="javascript:;" onclick="edit_user(--><?php //echo $empID; ?>
+<!--                                    </a>-->
                                 </div>
                             </div>
+                            <div class="profile-info-row">
+                                <div class="profile-info-name">Name</div>
+
+                                <div class="profile-info-value col-md-4">
+                                   <span><?php echo $full_name ?> <span>
+                                </div>
+                            </div>
+                            <div class="profile-info-row">
+                                <div class="profile-info-name">Last Name</div>
+
+                                <div class="profile-info-value col-md-4">
+                                     <span><?php echo $last_name ?> <span>
+                                </div>
+                            </div>
+                            <div class="profile-info-row">
+                                <div class="profile-info-name">Address</div>
+
+                                <div class="profile-info-value col-md-4">
+                                    <span><?php echo $EcAddress1 ?> <span>
+                                </div>
+                            </div>
+<!--                            <div class="profile-info-row">-->
+<!--                                <div class="profile-info-name">Country</div>-->
+<!---->
+<!--                                <div class="profile-info-value col-md-4">-->
+<!--                                    --><?php
+//
+//                                    $country_list = drop_getCountry();
+//
+//                                    echo form_dropdown('country_id', $country_list, '', 'class="chosen-select form-control" id="country_id"');
+//
+//                                    ?>
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                            <div class="profile-info-row">-->
+<!--                                <div class="profile-info-name">City</div>-->
+<!---->
+<!--                                <div class="profile-info-value col-md-4">-->
+<!--                                    <select id="city_id" class="form-control"><option>--><?php //echo $EpCity ?><!--</option></select>-->
+<!--                                </div>-->
+<!--                            </div>-->
+                            <div class="profile-info-row">
+                                <div class="profile-info-name">Phone</div>
+
+                                <div class="profile-info-value col-md-4">
+                                    <span><?php echo $EpTelephone ?> <span>
+                                </div>
+                            </div>
+                            <div class="profile-info-row">
+                                <div class="profile-info-name">Mobile</div>
+
+                                <div class="profile-info-value col-md-4">
+                                    <span><?php echo $EpMobile ?> <span>
+                                </div>
+                            </div>
+
+                            <div class="profile-info-row">
+                                <div class="profile-info-name"></div>
+                                <div  class="profile-info-value col-md-4">
+                                    <button type="submit" class="btn btn-overlap" onclick="edit_user(<?php echo $empID; ?>);">Edit</button>
+                                </div>
+                            </div>
+
                         </div>
 
                         <div class="hr hr-8 dotted"></div>
@@ -149,7 +220,7 @@ if ($this->session->all_userdata()) {
                         </div>
                     </div>
 
-                    <div style="visibility: hidden; display: none;">
+                    <div >
 
                         <div class="form-group">
                             <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Name</label>
@@ -183,44 +254,44 @@ if ($this->session->all_userdata()) {
                                        class="col-xs-10 col-sm-5"/>
                             </div>
                         </div>
-                        <div class="form-group">
-                            <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Skype</label>
-                            <div class="col-sm-9">
-                                <input type="text" id="EpSkype" name="EpSkype" placeholder="Skype"
-                                       class="col-xs-10 col-sm-5"/>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> LINKEDIN</label>
-                            <div class="col-sm-9">
-                                <input type="text" id="EpLinkedin" name="EpLinkedin" placeholder="Linkedin"
-                                       class="col-xs-10 col-sm-5"/>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-sm-3 control-label no-padding-right" for="form-field-1">
-                                Designation</label>
-                            <div class="col-sm-9">
-                                <input type="text" id="EpDesignation" name="EpDesignation" placeholder="Designation"
-                                       class="col-xs-10 col-sm-5"/>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-sm-3 control-label no-padding-right" for="form-field-1">
-                                Nationality</label>
-                            <div class="col-sm-9">
-                                <input type="text" id="EpNationality" name="EpNationality" placeholder="Nationality"
-                                       class="col-xs-10 col-sm-5"/>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Languages</label>
-                            <div class="col-sm-9">
-                                <input type="text" id="EpLanguages" name="EpLanguages" placeholder="Languages"
-                                       class="col-xs-10 col-sm-5"/>
-                            </div>
-                        </div>
-                    </div>
+<!--                        <div class="form-group">-->
+<!--                            <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Skype</label>-->
+<!--                            <div class="col-sm-9">-->
+<!--                                <input type="text" id="EpSkype" name="EpSkype" placeholder="Skype"-->
+<!--                                       class="col-xs-10 col-sm-5"/>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div class="form-group">-->
+<!--                            <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> LINKEDIN</label>-->
+<!--                            <div class="col-sm-9">-->
+<!--                                <input type="text" id="EpLinkedin" name="EpLinkedin" placeholder="Linkedin"-->
+<!--                                       class="col-xs-10 col-sm-5"/>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div class="form-group">-->
+<!--                            <label class="col-sm-3 control-label no-padding-right" for="form-field-1">-->
+<!--                                Designation</label>-->
+<!--                            <div class="col-sm-9">-->
+<!--                                <input type="text" id="EpDesignation" name="EpDesignation" placeholder="Designation"-->
+<!--                                       class="col-xs-10 col-sm-5"/>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div class="form-group">-->
+<!--                            <label class="col-sm-3 control-label no-padding-right" for="form-field-1">-->
+<!--                                Nationality</label>-->
+<!--                            <div class="col-sm-9">-->
+<!--                                <input type="text" id="EpNationality" name="EpNationality" placeholder="Nationality"-->
+<!--                                       class="col-xs-10 col-sm-5"/>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div class="form-group">-->
+<!--                            <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Languages</label>-->
+<!--                            <div class="col-sm-9">-->
+<!--                                <input type="text" id="EpLanguages" name="EpLanguages" placeholder="Languages"-->
+<!--                                       class="col-xs-10 col-sm-5"/>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
                     <!--<div class="form-group">
                         <label class="col-sm-3 control-label no-padding-right ">Is Admin</label>
 
@@ -354,4 +425,56 @@ if ($this->session->all_userdata()) {
             }
         });
     }
+
+
+    //$('#country_id').on('change',function () {
+    //
+    //    var CountryName=$('#country_id').val();
+    //
+    //    $.ajax({
+    //
+    //        type: 'POST',
+    //
+    //        dataType: 'json',
+    //
+    //        url: "<?php //echo site_url('Property/getCity'); ?>//",
+    //
+    //        data: {CountryName: CountryName},
+    //
+    //        cache: false,
+    //
+    //        beforeSend: function () {
+    //
+    //            // startLoad();
+    //
+    //        },
+    //
+    //        success: function (data) {
+    //
+    //
+    //            var html="";
+    //            html+=' <option disabled="disabled" value="" selected="selected">Select</option>';
+    //            $(data.output).each(function (key, val) {
+    //
+    //                html+='<option value='+val.city_id+'>'+val.city_name+'</option>';
+    //            });
+    //
+    //            $('#city_id').html("");
+    //            $('#city_id').html(html);
+    //
+    //        },
+    //
+    //        error: function (jqXHR, textStatus, errorThrown) {
+    //
+    //            alert(jqXHR.responseText);
+    //
+    //            // myAlert('e', jqXHR + ' ' + textStatus + ' ' + errorThrown)
+    //
+    //        }
+    //
+    //    });
+    //
+    //});
+
+
 </script>
